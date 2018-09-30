@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="calc-assets/bootstrap.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="calc-assets/css.css" rel="stylesheet">
+    <link href="calc-assets/main.css" rel="stylesheet">
+
+    <title>Calculator</title>
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+    <script type="text/javascript" src="calc-assets/jquery.js"></script>
+    <script type="text/javascript" src="calc-assets/jquery-migrate.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <div>
+                <a name="ways-to-save"></a>
+            </div>
+            <div class="impartial">
+                <div class="impartial-inner text-center">
+
+                    <div class="col-md-6 col-md-offset-3">
+                        <h3 class="how">Sellers Savings Calculator</h3>
+                        <div class="slider-save-txt">
+                            (slide for home value)
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><em class="bulleft"></em><em class="bulright"></em>
+                                <div id="slider-min">$100,000</div>
+                                <div id="slider-max">$1,000,000</div>
+                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 38.8749%;"></div><span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0" style="left: 0%;"><img
+                                        src="calc-assets/logo-icon.jpg" class="img-responsive img-circle" alt=""><input id="amount" readonlytype="text"></span>
+                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                            </div>
+
+                        </div>
+                        <div class="traditional">
+
+                            <div class="col-lg-6 text-left">
+                                <h2>HouseKey Flat Fee Realty</h2>
+                                <p>Listing Agent:<span>$2,995</span></p>
+                                <p>Buyers Agent:<span class="buyers_agent"></span></p>
+                                <p class="tot"><span class="text-right pro_flat_total_agent"></span></p>
+                            </div>
+
+                            <div class="col-lg-6 text-left">
+                                <h2>Traditional 6% Agent</h2>
+                                <p>Listing Agent:<span class="seller_agent"></span></p>
+                                <p>Buyers Agent:<span class="buyers_agent"></span></p>
+                                <p class="tot"><span class="text-right total_agent"></span></p>
+                            </div>
+
+                            <div class="col-lg-12 text-center custom_div">
+                                <h1 style="font-size: 30px;">You Save <label class="guaranteed_saving color_custom">$</label> <span class="perc"></span></h1>
+                            </div>
+                            <div class="col-lg-12 text-center custom_div">
+
+                                <div class="col-lg-12 text-center fee-savings">
+                                    <small class="text-center&quot;">HouseKey Flat Fee Savings:</small>
+                                    <h1><span class="guaranteed_saving">$</span> <span style="color:#000; text-transform: lowercase;"></span></h1>
+                                </div>
+                                </div>
+                                <!--<small class="text-right">Savings based on 6% Listing with admin fee and 2.7% Buyer Agent Payout</small>-->
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="textwidget">
+            <link rel="stylesheet" href="calc-assets/jquery-ui.css">
+            <style>
+                #contentbody_wrap {
+                    background: #fff;
+                    min-height: 600px;
+                    min-width: 1000px;
+                }
+
+                #contentbody_wrap {
+                    margin: 0 auto;
+                    padding: 40px 0 80px 0;
+                    width: 1000px;
+                }
+
+                @media screen and (max-width: 1400px) {
+                    #contentbody_wrap {
+                        width: 900px;
+                    }
+                }
+                /*  WIDGET CUSTOM [SAVINGS SLIDER] START  */
+                /*==================================================*/
+                /*  WIDGET HEAD  */
+
+                #widget-wrap {
+                    margin: 25px auto;
+                    min-width: 1000px;
+                    max-width: 1200px;
+                }
+
+                #widget-head {
+                    text-align: center;
+                    font: 300 32px 'Open Sans', sans-serif;
+                    color: #222;
+                    text-transform: uppercase;
+                }
+
+                #widget-head h3,
+                #widget-head p {
+                    margin: 0;
+                }
+
+                #widget-head h3 {
+                    font-weight: 700;
+                }
+
+                #widget-head em {
+                    color: #cf000c;
+                    font-weight: 700;
+                    font-style: normal;
+                }
+
+                .widgetlegend {
+                    display: block;
+                    font: 300 22px 'Open Sans Condensed', sans-serif;
+                    margin: 15px 0 0;
+                }
+                /*  SLIDER  */
+
+                #slider {
+                    width: 80%;
+                    min-width: 800px;
+                    max-width: 1000px;
+                    position: relative;
+                    margin: 65px auto 50px;
+                }
+
+                #amount {
+                    color: #222;
+                    border: none;
+                    background: none;
+                    position: absolute;
+                    bottom: -35px;
+                    left: -25px;
+                    width: 140px;
+                    max-width: 140px;
+                    font: 700 22px 'Open Sans', sans-serif;
+                }
+
+                #slider-min,
+                #slider-max {
+                    position: absolute;
+                    top: -55px;
+                    font: 300 15px 'Open Sans', sans-serif;
+                    color: #999;
+                }
+
+                #slider-min {
+                    left: -30px;
+                }
+
+                #slider-max {
+                    right: -45px;
+                }
+
+                .bulleft,
+                .bulright {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #bbb;
+                    position: absolute;
+                    top: -4px;
+                    z-index: 2;
+                }
+
+                .bulleft {
+                    left: -4px;
+                }
+
+                .bulright {
+                    right: -4px;
+                }
+                /*  SLIDER UI  */
+
+                #slider.ui-slider-horizontal {
+                    height: 1px;
+                    border: none;
+                    background: #bbb;
+                }
+
+                #slider.ui-slider-handle {
+                    position: relative;
+                }
+
+                #slider.ui-state-default,
+                #slider.ui-widget-content .ui-state-default,
+                #slider.ui-widget-header .ui-state-default {
+                    border-radius: 50% !important;
+                    text-align: center;
+                    font-size: 32px;
+                    line-height: 45px;
+                    text-shadow: 2px 1px 0 #444 !important;
+                    width: 50px;
+                    height: 50px;
+                    top: -0.9em;
+                    cursor: pointer;
+                    border: 3px solid #bbb;
+                    background-image: none !important;
+                    background: #d2000b !important;
+                    background: -webkit-gradient(linear, left top, left bottom, from(#fa0011), to(#d2000b)) !important;
+                    background: -webkit-linear-gradient(top, #fa0011, #d2000b) !important;
+                    background: -moz-linear-gradient(top, #fa0011, #d2000b) !important;
+                    background: -ms-linear-gradient(top, #fa0011, #d2000b) !important;
+                    background: -o-linear-gradient(top, #fa0011, #d2000b) !important;
+                }
+
+                #slider .ui-state-focus {
+                    border: 3px solid #bbb !important;
+                }
+
+                #slider .ui-state-hover {
+                    border-color: #555 !important;
+                }
+
+                .fa-usd {
+                    color: #fff;
+                    line-height: 50px;
+                }
+
+                .ui-state-focus {
+                    outline: none;
+                }
+
+                .total_agent,
+                .pro_flat_total_agent,
+                .tot-sav-rng h1 {
+                    margin: 0 0 20px;
+                }
+                /*  OPTIONS */
+
+                #opt-wrap {
+                    border-top: 1px dotted #bbb;
+                    padding: 15px 0;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+
+                .optbox {
+                    display: inline-block;
+                    width: 32%;
+                    color: #666;
+                    text-align: left;
+                }
+
+                .optbox a {
+                    text-decoration: none;
+                    color: #666;
+                }
+
+                .optbox h3 {
+                    font: 700 32px/32px 'Open Sans', sans-serif;
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+
+                .optbox h2 {
+                    font: 300 26px 'Open Sans Condensed', sans-serif;
+                    margin: 0;
+                }
+
+                .optbox a:hover {
+                    color: #df000d;
+                }
+
+                .opt-result {
+                    margin: 15px 0 0;
+                }
+
+                .opt-result span {
+                    display: inline-block;
+                    text-align: right;
+                    width: 39%;
+                    color: #222;
+                    font: 700 italic 28px/28px 'Open Sans', sans-serif;
+                    text-transform: uppercase;
+                    margin-right: 5px;
+                }
+
+                .opt-result span em {
+                    display: block;
+                    font-size: 18px;
+                    line-height: 18px;
+                }
+
+                .opt-result input {
+                    border: none;
+                    background: none;
+                    display: inline-block;
+                    width: 59%;
+                    font: 700 italic 42px 'Fira Sans', sans-serif;
+                    color: #df000d;
+                }
+                /*==================================================*/
+                /*  WIDGET CUSTOM [SAVINGS SLIDER] END  */
+            </style>
+
+            <script src="calc-assets/jquery-ui.js"></script>
+            <script src="calc-assets/jquery.ui.touch-punch.min.js"></script>
+            <script>
+                jQuery(document).ready(function() {
+                    //$(function() {
+                    jQuery("#slider").slider({
+                        range: 'min',
+                        value: 125000,
+                        min: 100000,
+                        max: 1000000,
+                        step: 5,
+                        slide: function(event, ui) {
+                            var sellers_agent = Math.round(ui.value * 0.030);
+                            var buyers_agent = Math.round(ui.value * 0.030);
+                            var total_agent = sellers_agent + buyers_agent;
+                            var pro_flat_total_agent = 2995 + buyers_agent;
+                            var guaranteed_saving = total_agent - pro_flat_total_agent;
+                            var even_more_saving = buyers_agent - 1000;
+                            var max_saving = total_agent - 3925;
+
+                            var percent = 2995 / buyers_agent;
+                            percent = Math.floor(percent * 100);
+                            percent = 100 - percent;
+
+                            jQuery(".perc").html("(" +percent +" %)");
+
+                            jQuery("#amount").val("$" + addCommas(ui.value));
+                            jQuery(".result_slider").text("$" + addCommas(ui.value));
+                            jQuery(".seller_agent").text("$" + addCommas(sellers_agent));
+                            jQuery(".buyers_agent").text("$" + addCommas(buyers_agent));
+                            jQuery(".total_agent").text("$" + addCommas(total_agent));
+                            jQuery(".pro_flat_total_agent").text("$" + addCommas(pro_flat_total_agent));
+                            jQuery(".even_more_saving").text("$" + addCommas(even_more_saving));
+                            jQuery(".max_saving").text("$" + addCommas(max_saving));
+                            jQuery(".guaranteed_saving").text("$" + addCommas(guaranteed_saving));
+                            jQuery(".opt1-head strong").text("$" + addCommas(Math.round(ui.value * .030 - 2995)));
+                            jQuery(".opt2-head strong").text("$" + addCommas(Math.round(ui.value * .030 - 1900)));
+                            jQuery(".opt3-head strong").text("$" + addCommas(Math.round(ui.value * .06 - 3925)));
+
+                        }
+                    });
+                    var sellers_agent = Math.round(jQuery("#slider").slider("value") * 0.030);
+                    var buyers_agent = Math.round(jQuery("#slider").slider("value") * 0.030);
+                    var total_agent = sellers_agent + buyers_agent;
+                    var pro_flat_total_agent = 2995 + buyers_agent;
+                    var guaranteed_saving = total_agent - pro_flat_total_agent;
+                    var even_more_saving = buyers_agent - 1000;
+                    var max_saving = total_agent - 4400;
+
+                    var percent = 2995 / buyers_agent;
+                    percent = Math.floor(percent * 100);
+                    percent = 100 - percent;
+                    jQuery(".perc").html("(" +percent +" %)");
+
+                    jQuery(".seller_agent").text("$" + addCommas(sellers_agent));
+                    jQuery(".buyers_agent").text("$" + addCommas(buyers_agent));
+                    jQuery(".total_agent").text("$" + addCommas(total_agent));
+                    jQuery(".pro_flat_total_agent").text("$" + addCommas(pro_flat_total_agent));
+                    jQuery(".even_more_saving").text("$" + addCommas(even_more_saving));
+                    jQuery(".guaranteed_saving").text("$" + addCommas(guaranteed_saving));
+                    jQuery(".max_saving").text("$" + addCommas(max_saving));
+                    jQuery('#amount').val("$" + addCommas(jQuery("#slider").slider("value"))).detach().appendTo('.ui-slider-handle');
+                    jQuery('.result_slider').text("$" + addCommas(jQuery("#slider").slider("value")));
+                    jQuery(".opt1-head strong").text("$" + addCommas(Math.round(jQuery("#slider").slider("value") * .030 - 2995)));
+                    jQuery(".opt2-head strong").text("$" + addCommas(Math.round(jQuery("#slider").slider("value") * .030 - 1900)));
+                    jQuery(".opt3-head strong").text("$" + addCommas(Math.round(jQuery("#slider").slider("value") * .06 - 3925)));
+
+                    function addCommas(nStr) {
+                        nStr += '';
+                        x = nStr.split('.');
+                        x1 = x[0];
+                        x2 = x.length > 1 ? '.' + x[1] : '';
+                        var rgx = /(\d+)(\d{3})/;
+                        while (rgx.test(x1)) {
+                            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                        }
+                        return x1 + x2;
+                    }
+                });
+            </script>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+<script type="text/javascript" src="calc-assets/scripts.js"></script>
+<script type="text/javascript" src="calc-assets/jquery.cycle2.min.js"></script>
+<script type="text/javascript" src="calc-assets/underscore.min.js"></script>
+<script type="text/javascript" src="calc-assets/backbone.min.js"></script>
+
+</body>
+</html>
